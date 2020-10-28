@@ -10,18 +10,14 @@ public class PreOrderTraversalNoRecursive {
 
         Stack<Item> stack = new Stack<>();
         stack.push(head);
-        Item item = stack.pop();
-        while (item != null) {
+        while (!stack.isEmpty()) {
+            head = stack.pop();
             System.out.println(head.data);
-            if (item.right != null) {
-                stack.push(item.right);
+            if (head.right != null) {
+                stack.push(head.right);
             }
-            if (item.left != null) {
-                stack.push(item.left);
-            }
-
-            if (!stack.empty()) {
-                item = stack.pop();
+            if (head.left != null) {
+                stack.push(head.left);
             }
         }
     }

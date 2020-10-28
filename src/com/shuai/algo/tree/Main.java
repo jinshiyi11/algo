@@ -6,7 +6,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         int capacity = 10;
-        List<Item> list = new ArrayList(capacity);
+        List<Item> list = new ArrayList<>(capacity);
         for (int i = 0; i < capacity; i++) {
             Item item = new Item();
             item.data = i + 1;
@@ -25,6 +25,7 @@ public class Main {
             }
         }
 
-        PreOrderTraversalNoRecursive.traversal(list.get(0));
+        //PreOrderTraversalNoRecursive.traversal(list.get(0));
+        InOrderTraversalNoRecursive.traversal(list.get(0));
     }
 }

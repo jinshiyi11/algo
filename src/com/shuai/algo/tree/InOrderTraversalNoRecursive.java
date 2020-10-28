@@ -3,24 +3,21 @@ package com.shuai.algo.tree;
 import java.util.Stack;
 
 public class InOrderTraversalNoRecursive {
-    public static void traversal(Item item) {
-        if (item == null) {
+    public static void traversal(Item head) {
+        if (head == null) {
             return;
         }
         Stack<Item> stack = new Stack<>();
-        stack.push(item);
-        while (!stack.isEmpty()) {
-            item = stack.pop();
-            if (item.right != null) {
-                stack.push(item.right);
+        while (!stack.isEmpty() || head != null) {
+            if (head != null) {
+                stack.push(head);
+                head = head.left;
+            } else {
+                head = stack.pop();
+                System.out.println(head.data);
+                head = head.right;
             }
 
-            if (item.left == null) {
-                System.out.println(item.data);
-            } else {
-                stack.push(item);
-                stack.push(item.left);
-            }
         }
     }
 }
